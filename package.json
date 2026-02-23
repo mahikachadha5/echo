@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "python3 server/server.py",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "netlify dev",
+    "client": "npm start --prefix client"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "concurrently": "^9.0.1"
+    "@anthropic-ai/sdk": "^0.36.3"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
   }
 }

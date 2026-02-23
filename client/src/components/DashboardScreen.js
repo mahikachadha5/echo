@@ -43,7 +43,7 @@ export default function DashboardScreen() {
     setError('');
 
     async function fetchAnalysis() {
-      const res = await fetch('/analyze', {
+      const res = await fetch('/.netlify/functions/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(place),

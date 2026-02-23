@@ -12,7 +12,7 @@ export default function AskCard({ place, suggestedQuestions }) {
     setLoading(true);
     setAnswer('');
     try {
-      const res = await fetch('/ask', {
+      const res = await fetch('/.netlify/functions/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: place.name, address: place.address, question }),
