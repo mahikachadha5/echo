@@ -1,0 +1,14 @@
+.ask-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
+.ask-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.ask-pill { font-size: 13px; font-weight: 500; color: #1A1A1A; background: #F5F4EF; border: 1px solid #E8E7E2; border-radius: 100px; padding: 6px 14px; cursor: pointer; transition: border-color 0.15s, background 0.15s; font-family: 'DM Sans', sans-serif; }
+.ask-pill:hover { border-color: #1A1A1A; }
+.ask-input-row { display: flex; gap: 8px; }
+.ask-input { flex: 1; border: 1px solid #E8E7E2; border-radius: 10px; padding: 11px 14px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: #1A1A1A; background: #F5F4EF; outline: none; transition: border-color 0.15s; }
+.ask-input:focus { border-color: #1A1A1A; background: #fff; }
+.ask-input::placeholder { color: #BBB; }
+.ask-btn { background: #1A1A1A; color: #fff; border: none; border-radius: 10px; padding: 11px 20px; font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: opacity 0.15s; white-space: nowrap; }
+.ask-btn:hover { opacity: 0.82; }
+.ask-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.ask-answer-wrap { margin-top: 14px; background: #F5F4EF; border-radius: 10px; padding: 14px 16px; }
+.ask-answer-text { font-size: 14px; color: #333; line-height: 1.6; font-family: 'DM Sans', sans-serif; }
+.ask-loading-text { font-size: 13px; color: #BBB; margin-top: 12px; font-family: 'DM Sans', sans-serif; }

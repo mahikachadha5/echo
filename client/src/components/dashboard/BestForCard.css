@@ -1,0 +1,4 @@
+.bestfor-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
+.bestfor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bestfor-item { display: flex; align-items: center; gap: 9px; padding: 12px 14px; border: 1px solid #E8E7E2; border-radius: 10px; font-size: 13px; font-weight: 500; color: #1A1A1A; font-family: 'DM Sans', sans-serif; }
+.bestfor-icon { font-size: 13px; color: var(--accent); flex-shrink: 0; line-height: 1; }

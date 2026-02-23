@@ -1,0 +1,4 @@
+.headsup-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
+.headsup-list { display: flex; flex-direction: column; gap: 12px; }
+.headsup-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #444; line-height: 1.5; font-family: 'DM Sans', sans-serif; }
+.headsup-icon { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: 'DM Sans', sans-serif; }
