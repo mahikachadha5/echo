@@ -1,44 +1,63 @@
-import { useEffect, useRef } from 'react';
-import searchIcon from '../images/searchIcon.png';
-import '../styles.css';
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 
-const AutocompleteSearch = ({ onPlaceSelected }) => {
-    const inputRef = useRef(null);
+const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
+  const inputRef = useRef(null);
 
-    useEffect(() => {
-        let interval;
+  useImperativeHandle(ref, () => ({
+    setValue: (value) => {
+      if (inputRef.current) {
+        inputRef.current.value = value;
+        inputRef.current.focus();
+      }
+    },
+  }));
 
-        const init = () => {
-            if (!window.google?.maps?.places) return false;
+  useEffect(() => {
+    let interval;
+    let listener;
 
-            const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current, {
-                fields: ["place_id", "name", "formatted_address"],
-                types: ["establishment"]
-            });
+    const init = () => {
+      if (!window.google?.maps?.places) return false;
 
-            autocomplete.addListener('place_changed', () => {
-                const place = autocomplete.getPlace();
-                if (place.place_id) onPlaceSelected(place);
-            });
+      const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current, {
+        fields: ['place_id', 'name', 'formatted_address', 'geometry'],
+        types: ['establishment'],
+      });
 
-            return true;
-        };
+      listener = autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.place_id) return;
 
-        if (!init()) {
-            interval = setInterval(() => { if (init()) clearInterval(interval); }, 100);
-        }
+        onPlaceSelected({
+          place_id: place.place_id,
+          name: place.name,
+          address: place.formatted_address,
+          lat: place.geometry.location.lat(),
+          lng: place.geometry.location.lng(),
+        });
+      });
 
-        return () => clearInterval(interval);
-    }, [onPlaceSelected]);
+      return true;
+    };
 
-    return (
-        <div className='center-container'>
-            <div className='search-container'>
-                <img src={searchIcon} className='search-icon' alt='Search Icon' />
-                <input ref={inputRef} type="text" placeholder="Search for a place" />
-            </div>
-        </div>
-    );
-};
+    if (!init()) {
+      interval = setInterval(() => { if (init()) clearInterval(interval); }, 100);
+    }
+
+    return () => {
+      clearInterval(interval);
+      if (listener) window.google?.maps?.event?.removeListener(listener);
+    };
+  }, [onPlaceSelected]);
+
+  return (
+    <input
+      ref={inputRef}
+      type="text"
+      placeholder="Search a place..."
+      className="search-input"
+    />
+  );
+});
 
 export default AutocompleteSearch;
