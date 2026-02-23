@@ -1,7 +1,44 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+
+const PROMPTS = ['Carbone in New York City', 'Ritz-Carlton Half Moon Bay', 'Ilona Boston'];
 
 const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
   const inputRef = useRef(null);
+  const [placeholder, setPlaceholder] = useState('');
+
+  useEffect(() => {
+    let promptIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let timeout;
+
+    function tick() {
+      const current = PROMPTS[promptIndex];
+      if (!isDeleting) {
+        setPlaceholder(current.slice(0, charIndex + 1));
+        charIndex++;
+        if (charIndex === current.length) {
+          isDeleting = true;
+          timeout = setTimeout(tick, 1800);
+        } else {
+          timeout = setTimeout(tick, 60);
+        }
+      } else {
+        setPlaceholder(current.slice(0, charIndex - 1));
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          promptIndex = (promptIndex + 1) % PROMPTS.length;
+          timeout = setTimeout(tick, 400);
+        } else {
+          timeout = setTimeout(tick, 35);
+        }
+      }
+    }
+
+    timeout = setTimeout(tick, 600);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useImperativeHandle(ref, () => ({
     setValue: (value) => {
@@ -54,7 +91,7 @@ const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
     <input
       ref={inputRef}
       type="text"
-      placeholder="Search a place..."
+      placeholder={placeholder}
       className="search-input"
     />
   );

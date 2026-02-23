@@ -1,8 +1,9 @@
-import React from 'react';
+import './Header.css';
 
-const Header = () => (
+const Header = ({ children, showPoweredBy = false }) => (
   <header className="header">
-      <span className="logo-name">Echo</span>
+      <span className="logo-name">echo</span>
+    {children}
   </header>
 );
 

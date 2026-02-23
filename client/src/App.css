@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -10,13 +10,8 @@
   --text-2: #666;
   --text-3: #a8a49e;
   --accent: #105420;
-  --primary: #FFADAD;
-  --secondary: #FFADAD;
-  --green-bg: #edf7f1;
-  --red: #c0392b;
-  --red-bg: #fdf1f0;
-  --amber: #b45309;
-  --amber-bg: #fef9ed;
+  --mid: #8A7D5A;
+  --declining: #C84B31;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   --shadow: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
   --shadow-lg: 0 12px 32px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
@@ -43,6 +38,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); min-
 
 /* ── Search ── */
 .search-wrap { display: flex; background: var(--white); border: 1.5px solid var(--border); border-radius: 50px; overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s; max-width: 700px; margin: 0 auto; }
+.header-search { flex: 1; max-width: 500px; margin-left: 32px; box-shadow: none; }
 .search-wrap:focus-within { border-color: var(--text); box-shadow: var(--shadow-lg); }
 .search-input { flex: 1; border: none; background: transparent; font-family: var(--sans); font-size: 14px; color: var(--text); padding: 14px 20px; outline: none; font-weight: 500; }
 .search-input::placeholder { color: var(--text-3); font-weight: 400; }

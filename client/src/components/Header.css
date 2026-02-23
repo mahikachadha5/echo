@@ -1,0 +1,2 @@
+.header { display: flex; align-items: center; justify-content: space-between; padding: 16px 25px; border-bottom: 1px solid var(--border); margin: 0;}
+.logo-name { font-weight: 700; font-size: 25px; line-height: 75%; letter-spacing: -0.10em;}
