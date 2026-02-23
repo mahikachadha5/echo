@@ -1,0 +1,15 @@
+[build]
+  publish = "client/build"
+  command = "npm run build --prefix client"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  command     = "npm start --prefix client"
+  targetPort  = 3000
+  port        = 8888
+  autoLaunch  = false
+
+[dev.environment]
+  BROWSER = "none"
