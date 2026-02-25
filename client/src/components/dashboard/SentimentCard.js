@@ -31,8 +31,8 @@ export default function SentimentCard({ score, trend, trendDescription }) {
               strokeDasharray={`${dash} ${CIRC}`}
               transform="rotate(-90 60 60)"
             />
-            <text x="60" y="55" textAnchor="middle" fontSize="26" fontWeight="700" fill="#1A1A1A" fontFamily="DM Serif Display, serif">{score}</text>
-            <text x="60" y="71" textAnchor="middle" fontSize="11" fill="#BBB" fontFamily="DM Sans, sans-serif">/100</text>
+            <text x="60" y="63" textAnchor="middle" fontSize="28" fontWeight="700" fill="#1A1A1A" fontFamily="DM Serif Display, serif">{score}</text>
+            <text x="60" y="77" textAnchor="middle" fontSize="11" fill="#BBB" fontFamily="DM Sans, sans-serif">/100</text>
           </svg>
         </div>
         <div className="sentiment-right">
