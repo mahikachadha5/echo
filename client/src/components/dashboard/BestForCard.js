@@ -8,12 +8,21 @@ export default function BestForCard({ occasions }) {
     <div className="bestfor-card">
       <div className="dash-card-label">Best For</div>
       <div className="bestfor-grid">
-        {occasions.slice(0, 4).map((item, i) => (
-          <div key={item} className="bestfor-item">
-            <span className="bestfor-icon">{ICONS[i % ICONS.length]}</span>
-            {item}
-          </div>
-        ))}
+        {occasions.slice(0, 4).map((item, i) => {
+          const label = item?.label ?? item;
+          const mentions = item?.mentions;
+          return (
+            <div key={label} className="bestfor-item">
+              <span className="bestfor-icon">{ICONS[i % ICONS.length]}</span>
+              <div className="bestfor-text">
+                <span className="bestfor-label">{label}</span>
+                {mentions != null && (
+                  <span className="bestfor-mentions">Mentioned by {mentions.toLocaleString()} reviewers</span>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
