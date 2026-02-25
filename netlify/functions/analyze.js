@@ -35,8 +35,9 @@ place. Write as if recommending to a trusted friend. Avoid generic phrases like 
 relevant to this venue type (e.g. Food quality, Service, Ambiance, Value, Wait time).
 - "vibeTags": Array of 4–6 short strings describing the emotional tone and vibe \
 (e.g. "Intimate", "Worth every penny", "Hidden gem").
-- "bestFor": Array of exactly 4 strings describing ideal occasions or visitor types \
-(e.g. "Special occasion", "Date night", "Families", "Solo travel").
+- "bestFor": Array of exactly 4 objects, each with "label" (string, ideal occasion or visitor type, \
+e.g. "Special occasion", "Date night", "Families", "Solo travel") and "mentions" (integer, estimated \
+review mention count).
 - "whenToGo": Object with "bestTime" (string) and "avoid" (string) — specific times, days, or \
 seasons based on review patterns.
 - "headsUp": Array of 2–4 strings. Specific warnings or common complaints visitors should know.
