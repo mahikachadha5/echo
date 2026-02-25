@@ -138,13 +138,14 @@ export default function DashboardScreen() {
           {/* Two-column layout */}
           <div className="dash-columns">
             <div className="dash-col-left">
+              <AskCard place={place} suggestedQuestions={analysis.suggestedQuestions} />
               <SentimentCard
                 score={analysis.sentimentScore}
                 trend={analysis.trend}
                 trendDescription={analysis.trendDescription}
               />
               <ThemesCard themes={analysis.keyThemes} />
-              <AskCard place={place} suggestedQuestions={analysis.suggestedQuestions} />
+              
             </div>
             <div className="dash-col-right">
               <VibeCard tags={analysis.vibeTags} />
