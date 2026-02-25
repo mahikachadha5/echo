@@ -1,4 +1,4 @@
-.app-dashboard { background: #F5F4EF; font-family: 'DM Sans', sans-serif; }
+.app-dashboard { background: #F5F4EF; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
 .dash-page { padding: 36px 48px 64px; }
 
@@ -30,3 +30,13 @@
 
 /* ── dash-card-label is used inside each card component ── */
 .dash-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
+
+@media (max-width: 768px) {
+  .dash-page { padding: 24px 16px 48px; }
+  .dash-hero { flex-direction: column; gap: 16px; }
+  .dash-place-name { font-size: 32px; }
+  .dash-hero-right { align-items: flex-start; }
+  .dash-columns { flex-direction: column; }
+  .dash-col-left  { flex: 1 1 auto; width: 100%; }
+  .dash-col-right { flex: 1 1 auto; width: 100%; }
+}
