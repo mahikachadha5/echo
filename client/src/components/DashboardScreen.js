@@ -122,11 +122,18 @@ export default function DashboardScreen() {
                   <span className="dash-review-count">({placeDetails.user_ratings_total?.toLocaleString()} reviews)</span>
                 </div>
               )}
-              {placeDetails?.url && (
-                <button className="view-reviews-btn" onClick={() => window.open(placeDetails.url, '_blank')}>
-                  View reviews ↗
-                </button>
-              )}
+              <div className="dash-hero-btns">
+                {analysis.reservationUrl && (
+                  <button className="reserve-btn" onClick={() => window.open(analysis.reservationUrl, '_blank')}>
+                    Reserve a table
+                  </button>
+                )}
+                {placeDetails?.url && (
+                  <button className="view-reviews-btn" onClick={() => window.open(placeDetails.url, '_blank')}>
+                    View reviews ↗
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 

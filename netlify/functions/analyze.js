@@ -44,6 +44,9 @@ seasons based on review patterns.
 - "insiderTips": Array of 2–3 strings. Specific tips that regular customers know.
 - "suggestedQuestions": Array of exactly 4 strings. Contextually relevant questions a first-time \
 visitor might ask about this specific place.
+- "reservationUrl": String URL to book a reservation if this is a restaurant or reservable venue — \
+prefer a direct Resy listing URL, then OpenTable, then the venue's own reservations page. Return null \
+if the place does not take reservations or is not a dining/hospitality venue.
 
 Return ONLY valid JSON. No markdown, no code fences, no extra text.`;
 

@@ -14,8 +14,11 @@
 .dash-star-empty  { color: #E0DDD8; }
 .dash-rating-num { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #1A1A1A; }
 .dash-review-count { font-size: 14px; color: #999; }
+.dash-hero-btns { display: flex; gap: 8px; align-items: center; }
 .view-reviews-btn { font-size: 13px; font-weight: 500; color: #1A1A1A; background: #fff; border: 1px solid #E8E7E2; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: border-color 0.15s; font-family: 'DM Sans', sans-serif; }
 .view-reviews-btn:hover { border-color: #1A1A1A; }
+.reserve-btn { font-size: 13px; font-weight: 500; color: #fff; background: #1A1A1A; border: 1px solid #1A1A1A; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: opacity 0.15s; font-family: 'DM Sans', sans-serif; }
+.reserve-btn:hover { opacity: 0.8; }
 
 /* ── Claude's take (full width) ── */
 .dash-take-wrap { margin-bottom: 24px; }
