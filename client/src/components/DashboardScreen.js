@@ -123,11 +123,11 @@ export default function DashboardScreen() {
                 </div>
               )}
               <div className="dash-hero-btns">
-                {analysis.reservationUrl && (
+                {/* {analysis.reservationUrl && (
                   <button className="reserve-btn" onClick={() => window.open(analysis.reservationUrl, '_blank')}>
                     Reserve a table
                   </button>
-                )}
+                )} */}
                 {placeDetails?.url && (
                   <button className="view-reviews-btn" onClick={() => window.open(placeDetails.url, '_blank')}>
                     View reviews ↗
