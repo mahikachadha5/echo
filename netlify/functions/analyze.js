@@ -35,14 +35,18 @@ place. Write as if recommending to a trusted friend. Avoid generic phrases like 
 relevant to this venue type (e.g. Food quality, Service, Ambiance, Value, Wait time).
 - "vibeTags": Array of 4–6 short strings describing the emotional tone and vibe \
 (e.g. "Intimate", "Worth every penny", "Hidden gem").
-- "bestFor": Array of exactly 4 strings describing ideal occasions or visitor types \
-(e.g. "Special occasion", "Date night", "Families", "Solo travel").
+- "bestFor": Array of exactly 4 objects, each with "label" (string, ideal occasion or visitor type, \
+e.g. "Special occasion", "Date night", "Families", "Solo travel") and "mentions" (integer, estimated \
+review mention count).
 - "whenToGo": Object with "bestTime" (string) and "avoid" (string) — specific times, days, or \
 seasons based on review patterns.
 - "headsUp": Array of 2–4 strings. Specific warnings or common complaints visitors should know.
 - "insiderTips": Array of 2–3 strings. Specific tips that regular customers know.
 - "suggestedQuestions": Array of exactly 4 strings. Contextually relevant questions a first-time \
 visitor might ask about this specific place.
+- "reservationUrl": String URL to book a reservation if this is a restaurant or reservable venue — \
+prefer a direct Resy listing URL, then OpenTable, then the venue's own reservations page. Return null \
+if the place does not take reservations or is not a dining/hospitality venue.
 
 Return ONLY valid JSON. No markdown, no code fences, no extra text.`;
 

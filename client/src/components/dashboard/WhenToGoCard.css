@@ -4,5 +4,5 @@
 .whentogo-sublabel { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #BBB; font-family: 'DM Sans', sans-serif; }
 .whentogo-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .dot-green { background: #22C55E; }
-.dot-muted { background: var(--amber); }
+.dot-muted { background: var(--declining); }
 .whentogo-text { font-size: 14px; font-weight: 500; color: #1A1A1A; padding-left: 14px; font-family: 'DM Sans', sans-serif; }

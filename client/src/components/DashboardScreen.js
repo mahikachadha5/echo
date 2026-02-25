@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import AutocompleteSearch from './AutocompleteSearch';
@@ -32,8 +32,13 @@ export default function DashboardScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [newPlace, setNewPlace] = useState(null);
+  const searchRef = useRef(null);
 
   const place = state?.place;
+
+  useEffect(() => {
+    if (place?.name) searchRef.current?.setValue(place.name);
+  }, [place]);
 
   useEffect(() => {
     if (!place) { navigate('/'); return; }
@@ -80,7 +85,7 @@ export default function DashboardScreen() {
 
   const searchBar = (
     <div className="search-wrap header-search">
-      <AutocompleteSearch onPlaceSelected={setNewPlace} />
+      <AutocompleteSearch ref={searchRef} onPlaceSelected={setNewPlace} />
       <button className="search-btn" onClick={handleAnalyze} disabled={!newPlace}>Analyze</button>
     </div>
   );
@@ -117,11 +122,18 @@ export default function DashboardScreen() {
                   <span className="dash-review-count">({placeDetails.user_ratings_total?.toLocaleString()} reviews)</span>
                 </div>
               )}
-              {placeDetails?.url && (
-                <button className="view-reviews-btn" onClick={() => window.open(placeDetails.url, '_blank')}>
-                  View reviews ↗
-                </button>
-              )}
+              <div className="dash-hero-btns">
+                {analysis.reservationUrl && (
+                  <button className="reserve-btn" onClick={() => window.open(analysis.reservationUrl, '_blank')}>
+                    Reserve a table
+                  </button>
+                )}
+                {placeDetails?.url && (
+                  <button className="view-reviews-btn" onClick={() => window.open(placeDetails.url, '_blank')}>
+                    View reviews ↗
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
@@ -133,13 +145,14 @@ export default function DashboardScreen() {
           {/* Two-column layout */}
           <div className="dash-columns">
             <div className="dash-col-left">
+              <AskCard place={place} suggestedQuestions={analysis.suggestedQuestions} />
               <SentimentCard
                 score={analysis.sentimentScore}
                 trend={analysis.trend}
                 trendDescription={analysis.trendDescription}
               />
               <ThemesCard themes={analysis.keyThemes} />
-              <AskCard place={place} suggestedQuestions={analysis.suggestedQuestions} />
+              
             </div>
             <div className="dash-col-right">
               <VibeCard tags={analysis.vibeTags} />
