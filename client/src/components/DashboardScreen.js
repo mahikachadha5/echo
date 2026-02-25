@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import AutocompleteSearch from './AutocompleteSearch';
@@ -32,8 +32,13 @@ export default function DashboardScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [newPlace, setNewPlace] = useState(null);
+  const searchRef = useRef(null);
 
   const place = state?.place;
+
+  useEffect(() => {
+    if (place?.name) searchRef.current?.setValue(place.name);
+  }, [place]);
 
   useEffect(() => {
     if (!place) { navigate('/'); return; }
@@ -80,7 +85,7 @@ export default function DashboardScreen() {
 
   const searchBar = (
     <div className="search-wrap header-search">
-      <AutocompleteSearch onPlaceSelected={setNewPlace} />
+      <AutocompleteSearch ref={searchRef} onPlaceSelected={setNewPlace} />
       <button className="search-btn" onClick={handleAnalyze} disabled={!newPlace}>Analyze</button>
     </div>
   );
