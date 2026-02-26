@@ -2,12 +2,12 @@ import { useState } from 'react';
 import './KnowBeforeYouGoCard.css';
 
 const FILTERS = [
-  { key: 'headsup', label: 'Heads Up', icon: '!' },
   { key: 'tips', label: 'Pro Tips', icon: '✦' },
+  { key: 'headsup', label: 'Heads Up', icon: '!' },
 ];
 
 export default function KnowBeforeYouGoCard({ items, tips }) {
-  const [active, setActive] = useState('headsup');
+  const [active, setActive] = useState('tips');
 
   if (!items?.length && !tips?.length) return null;
 

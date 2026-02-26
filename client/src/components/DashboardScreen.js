@@ -108,7 +108,7 @@ export default function DashboardScreen() {
                   <span className="dash-echo-score-num">
                     {analysis.sentimentScore}<span className="dash-echo-score-denom">/100</span>
                   </span>
-                  <span className="dash-echo-score-label">ECHO'S SCORE</span>
+                  <span className="dash-echo-score-label">Sentiment Score</span>
                 </div>
               )}
               <div className="dash-hero-btns">
@@ -121,14 +121,15 @@ export default function DashboardScreen() {
             </div>
           </div>
 
+          <hr className="dash-divider" />
           <div className="dash-layout">
             <div className="dash-row-1">
               <ThemesCard themes={analysis.keyThemes} />
-              <KnowBeforeYouGoCard items={analysis.headsUp} tips={analysis.insiderTips} />
-            </div>
-            <div className="dash-row-2">
               <BestForCard occasions={analysis.bestFor} />
               <WhenToGoCard whenToGo={analysis.whenToGo} />
+            </div>
+            <div className="dash-row-2">
+              <KnowBeforeYouGoCard items={analysis.headsUp} tips={analysis.insiderTips} />
               <AskCard place={place} questions={analysis.suggestedQuestions?.slice(0, 2)} />
             </div>
           </div>

@@ -1,8 +1,7 @@
 .bestfor-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; }
-.bestfor-grid { display: flex; flex-direction: column; flex: 1; }
+.bestfor-grid { display: flex; flex-direction: column;  }
 .bestfor-item { display: flex; align-items: center; gap: 9px; padding: 12px 0; border-bottom: 1px solid #F0EFE9; font-family: 'DM Sans', sans-serif; flex: 1; }
-.bestfor-item:first-child { padding-top: 0; }
-.bestfor-item:last-child { border-bottom: none; padding-bottom: 0; }
+.bestfor-item:last-child { border-bottom: none;  }
 .bestfor-icon { font-size: 13px; color: var(--accent); flex-shrink: 0; line-height: 1.4; }
 .bestfor-text { display: flex; flex-direction: column; gap: 3px; }
 .bestfor-label { font-size: 13px; font-weight: 500; color: #1A1A1A; line-height: 1.3; }
