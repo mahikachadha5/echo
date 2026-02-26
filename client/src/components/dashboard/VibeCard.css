@@ -1,4 +1,2 @@
 .vibe-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
 .dash-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
-.vibe-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.vibe-tag { font-size: 13px; font-weight: 500; color: #1A1A1A; background: #fff; border: 1px solid #E8E7E2; border-radius: 100px; padding: 6px 14px; font-family: 'DM Sans', sans-serif; }

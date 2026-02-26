@@ -25,21 +25,21 @@ located at "${address}" (place_id: ${place_id}, coordinates: ${lat}, ${lng}), pr
 analysis of this place's reputation and customer experience.
 
 Return ONLY a valid JSON object with exactly these keys:
-- "claudeTake": One punchy, opinionated sentence (under 20 words) capturing the essence of this \
-place. Write as if recommending to a trusted friend. Avoid generic phrases like "a must-visit".
 - "sentimentScore": Integer 0–100 representing overall public sentiment.
 - "trend": Exactly one word — "improving", "declining", or "stable".
 - "trendDescription": One sentence explaining the sentiment trend based on recent vs older reviews.
 - "keyThemes": Array of 5–7 objects ordered by score descending, each with "theme" (string), \
-"score" (integer 0–100), and "mentions" (integer, estimated review mention count). Use themes \
+"score" (integer 0–100). Use themes \
 relevant to this venue type (e.g. Food quality, Service, Ambiance, Value, Wait time).
 - "vibeTags": Array of 4–6 short strings describing the emotional tone and vibe \
 (e.g. "Intimate", "Worth every penny", "Hidden gem").
 - "bestFor": Array of exactly 4 objects, each with "label" (string, ideal occasion or visitor type, \
-e.g. "Special occasion", "Date night", "Families", "Solo travel") and "mentions" (integer, estimated \
-review mention count).
-- "whenToGo": Object with "bestTime" (string) and "avoid" (string) — specific times, days, or \
-seasons based on review patterns.
+e.g. "Special occasion", "Date night", "Families", "Solo travel").
+- "whenToGo": Object with "bestTime" (string) and "avoid" (string) — exactly one sentence each. \
+Start each sentence with exactly 3 words that name the ideal (or worst) time/day, \
+then complete the thought with context (e.g. "Weekday lunch hour is relaxed and rarely crowded, \
+making it perfect for a leisurely meal." or "Friday and Saturday evenings get packed quickly and \
+waits can stretch past an hour."). The first 3 words should work as a standalone skim label.
 - "headsUp": Array of 2–4 strings. Specific warnings or common complaints visitors should know.
 - "insiderTips": Array of 2–3 strings. Specific tips that regular customers know.
 - "suggestedQuestions": Array of exactly 4 strings. Contextually relevant questions a first-time \

@@ -2,15 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import AutocompleteSearch from './AutocompleteSearch';
-import ClaudeTakeCard from './dashboard/ClaudeTakeCard';
-import SentimentCard from './dashboard/SentimentCard';
+
 import ThemesCard from './dashboard/ThemesCard';
 import AskCard from './dashboard/AskCard';
-import VibeCard from './dashboard/VibeCard';
 import BestForCard from './dashboard/BestForCard';
 import WhenToGoCard from './dashboard/WhenToGoCard';
-import HeadsUpCard from './dashboard/HeadsUpCard';
-import InsiderTipsCard from './dashboard/InsiderTipsCard';
+import KnowBeforeYouGoCard from './dashboard/KnowBeforeYouGoCard';
 import './DashboardScreen.css';
 
 function RatingStars({ rating }) {
@@ -111,8 +108,16 @@ export default function DashboardScreen() {
           {/* Place hero */}
           <div className="dash-hero">
             <div>
-              <h1 className="dash-place-name">{place.name}</h1>
+              <div className="dash-name-row">
+                <h1 className="dash-place-name">{place.name}</h1>
+                {analysis.sentimentScore != null && (
+                  <span className="dash-score-badge">
+                    {analysis.sentimentScore}<span className="dash-score-denom">/100</span>
+                  </span>
+                )}
+              </div>
               <p className="dash-place-addr">{place.address}</p>
+              {analysis.trendDescription && <p className="dash-trend-desc">{analysis.trendDescription}</p>}
             </div>
             <div className="dash-hero-right">
               {placeDetails?.rating && (
@@ -137,29 +142,15 @@ export default function DashboardScreen() {
             </div>
           </div>
 
-          {/* Claude's take — full width */}
-          <div className="dash-take-wrap">
-            <ClaudeTakeCard take={analysis.claudeTake} />
-          </div>
-
-          {/* Two-column layout */}
-          <div className="dash-columns">
-            <div className="dash-col-left">
-              <AskCard place={place} suggestedQuestions={analysis.suggestedQuestions} />
-              <SentimentCard
-                score={analysis.sentimentScore}
-                trend={analysis.trend}
-                trendDescription={analysis.trendDescription}
-              />
+          <div className="dash-layout">
+            <div className="dash-row-1">
               <ThemesCard themes={analysis.keyThemes} />
-              
-            </div>
-            <div className="dash-col-right">
-              <VibeCard tags={analysis.vibeTags} />
               <BestForCard occasions={analysis.bestFor} />
               <WhenToGoCard whenToGo={analysis.whenToGo} />
-              <HeadsUpCard items={analysis.headsUp} />
-              <InsiderTipsCard tips={analysis.insiderTips} />
+            </div>
+            <div className="dash-row-2">
+              <KnowBeforeYouGoCard items={analysis.headsUp} tips={analysis.insiderTips} />
+              <AskCard place={place} />
             </div>
           </div>
         </div>

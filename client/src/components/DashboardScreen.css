@@ -5,7 +5,11 @@
 /* ── Place hero ── */
 .dash-hero { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
 .dash-place-name { font-family: 'DM Serif Display', serif; font-size: 46px; font-weight: 400; line-height: 1.1; letter-spacing: -0.5px; color: #1A1A1A; }
+.dash-name-row { display: flex; align-items: baseline; gap: 14px; }
+.dash-score-badge { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; color: #1A1A1A; white-space: nowrap; }
+.dash-score-denom { font-size: 16px; color: #BBB; }
 .dash-place-addr { font-size: 15px; color: #888; margin-top: 6px; font-family: 'DM Sans', sans-serif; }
+.dash-trend-desc { font-size: 14px; font-weight: 400; color: #666; margin-top: 10px; font-family: 'DM Sans', sans-serif; line-height: 1.5; }
 .dash-hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; padding-top: 4px; }
 .dash-rating-row { display: flex; align-items: center; gap: 8px; }
 .dash-stars { display: flex; gap: 2px; }
@@ -23,10 +27,13 @@
 /* ── Claude's take (full width) ── */
 .dash-take-wrap { margin-bottom: 24px; }
 
-/* ── Two-column layout ── */
-.dash-columns { display: flex; gap: 24px; align-items: flex-start; }
-.dash-col-left  { flex: 0 0 60%; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
-.dash-col-right { flex: 0 0 calc(40% - 24px); display: flex; flex-direction: column; gap: 16px; }
+/* ── Grid layout ── */
+.dash-layout { display: flex; flex-direction: column; gap: 20px; }
+.dash-row-1 { display: flex; gap: 20px; align-items: stretch; }
+.dash-row-1 > *:first-child { flex: 0 0 40%; min-width: 0; }
+.dash-row-1 > *:not(:first-child) { flex: 1; min-width: 0; }
+.dash-row-2 { display: flex; gap: 20px; align-items: stretch; }
+.dash-row-2 > * { flex: 1; min-width: 0; }
 
 /* ── dash-card-label is used inside each card component ── */
 .dash-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
@@ -36,7 +43,5 @@
   .dash-hero { flex-direction: column; gap: 16px; }
   .dash-place-name { font-size: 32px; }
   .dash-hero-right { align-items: flex-start; }
-  .dash-columns { flex-direction: column; }
-  .dash-col-left  { flex: 1 1 auto; width: 100%; }
-  .dash-col-right { flex: 1 1 auto; width: 100%; }
+  .dash-row-1, .dash-row-2 { flex-direction: column; }
 }

@@ -1,0 +1,48 @@
+.kbyg-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
+
+.kbyg-filters { display: flex; gap: 6px; margin-top: 12px; margin-bottom: 18px; }
+
+.kbyg-filter {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1.5px solid #D8D7D2; background: transparent;
+  font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 500;
+  color: #666; cursor: pointer; transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.kbyg-filter:hover { border-color: var(--accent); color: var(--accent); }
+.kbyg-filter--active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.kbyg-filter--active .kbyg-filter-icon--headsup { border-color: #fff; color: #fff; }
+.kbyg-filter--active .kbyg-filter-icon--tips { color: #fff; }
+
+.kbyg-filter-icon--headsup {
+  width: 15px; height: 15px; border-radius: 50%;
+  border: 1.5px solid var(--accent); color: var(--accent);
+  font-size: 9px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: border-color 0.15s, color 0.15s;
+}
+.kbyg-filter-icon--tips { color: var(--accent); font-size: 10px; flex-shrink: 0; transition: color 0.15s; }
+
+.kbyg-list { display: flex; flex-direction: column; }
+
+.kbyg-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: #444; line-height: 1.5;
+  font-family: 'DM Sans', sans-serif;
+  padding: 13px 0; border-bottom: 1px solid #F0EFE9;
+}
+.kbyg-item:first-child { padding-top: 0; }
+.kbyg-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.kbyg-icon--headsup {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--accent); color: var(--accent);
+  font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+  font-family: 'DM Sans', sans-serif;
+}
+.kbyg-icon--tips { color: var(--accent); font-size: 12px; flex-shrink: 0; margin-top: 2px; line-height: 1; }
+
+.kbyg-text { flex: 1; }

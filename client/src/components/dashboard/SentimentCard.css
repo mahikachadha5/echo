@@ -7,4 +7,6 @@
 .pill-improving { color: #166534; background: #dcfce7; }
 .pill-declining  { color: var(--declining); background: #fdf3f0; }
 .pill-stable     { color: #92400e; background: #fef9ed; }
-.sentiment-trend-desc { font-size: 13px; color: #666; line-height: 1.55; font-family: 'DM Sans', sans-serif; }
+.sentiment-trend-desc { font-size: 14px; font-weight: 500; color: #1A1A1A; padding-left: 14px; font-family: 'DM Sans', sans-serif; }
+.vibe-tag { font-size: 12px; font-weight: 500; color: #1A1A1A; background: #fff; border-radius: 100px; padding: 6px 14px; font-family: 'DM Sans', sans-serif; }
+.insider-icon { color: var(--accent) ; font-size: 12px; margin-left: 10px; line-height: 1; }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './AskCard.css';
 
-export default function AskCard({ place, suggestedQuestions }) {
+export default function AskCard({ place }) {
   const [input, setInput] = useState('');
   const [answer, setAnswer] = useState('');
   const [loading, setLoading] = useState(false);
@@ -26,21 +26,9 @@ export default function AskCard({ place, suggestedQuestions }) {
     }
   }
 
-  function handlePillClick(q) {
-    setInput(q);
-    handleAsk(q);
-  }
-
   return (
     <div className="ask-card">
       <div className="dash-card-label">Ask about this place</div>
-      {suggestedQuestions?.length > 0 && (
-        <div className="ask-pills">
-          {suggestedQuestions.map(q => (
-            <button key={q} className="ask-pill" onClick={() => handlePillClick(q)}>{q}</button>
-          ))}
-        </div>
-      )}
       <div className="ask-input-row">
         <input
           className="ask-input"

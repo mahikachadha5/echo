@@ -1,4 +1,0 @@
-.insider-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
-.insider-list { display: flex; flex-direction: column; gap: 13px; }
-.insider-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #444; line-height: 1.55; font-family: 'DM Sans', sans-serif; }
-.insider-icon { color: var(--accent) ; font-size: 12px; flex-shrink: 0; margin-top: 2px; line-height: 1; }

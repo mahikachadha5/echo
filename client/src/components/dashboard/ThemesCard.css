@@ -3,16 +3,15 @@
 .theme-row:last-child { margin-bottom: 0; }
 .theme-name-wrap { display: flex; flex-direction: column; gap: 2px; }
 .theme-name { font-size: 14px; font-weight: 500; font-family: 'DM Sans', sans-serif; }
-.theme-name-dark { color: #1A1A1A; }
+.theme-name-dark { color: var(--accent); }
 .theme-name-mid  { color: #666; }
 .theme-name-low  { color: #BBB; }
-.theme-mentions { font-size: 11px; color: #BBB; font-family: 'DM Sans', sans-serif; }
 .theme-bar-track { background: #F0EEEA; border-radius: 4px; height: 7px; overflow: hidden; }
 .theme-bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
-.bar-dark   { background: #1A1A1A; }
+.bar-dark   { background: var(--accent); }
 .bar-mid    { background: #9CA3AF; }
 .bar-low    { background: #F5BFB5; }
 .theme-score { font-size: 14px; font-weight: 600; text-align: right; font-family: 'DM Sans', sans-serif; }
-.score-dark  { color: #1A1A1A; }
+.score-dark  { color: var(--accent); }
 .score-mid   { color: #9CA3AF; }
 .score-low   { color: #C84B31; }
