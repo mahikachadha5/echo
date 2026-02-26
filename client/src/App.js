@@ -9,7 +9,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SearchScreen />} />
-        <Route path="/dashboard" element={<DashboardScreen />} />
+        <Route path="/dashboard/:placeId" element={<DashboardScreen />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import AutocompleteSearch from './AutocompleteSearch';
 
@@ -12,8 +12,9 @@ import './DashboardScreen.css';
 
 
 export default function DashboardScreen() {
-  const { state } = useLocation();
+  const { placeId } = useParams();
   const navigate = useNavigate();
+  const [place, setPlace] = useState(null);
   const [analysis, setAnalysis] = useState(null);
   const [placeDetails, setPlaceDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,53 +22,68 @@ export default function DashboardScreen() {
   const [newPlace, setNewPlace] = useState(null);
   const searchRef = useRef(null);
 
-  const place = state?.place;
-
   useEffect(() => {
     if (place?.name) searchRef.current?.setValue(place.name);
   }, [place]);
 
   useEffect(() => {
-    if (!place) { navigate('/'); return; }
+    if (!placeId) { navigate('/'); return; }
     setAnalysis(null);
     setPlaceDetails(null);
+    setPlace(null);
     setLoading(true);
     setError('');
 
-    async function fetchAnalysis() {
-      const res = await fetch('/.netlify/functions/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(place),
-      });
-      if (!res.ok) throw new Error((await res.text()) || 'Analysis failed');
-      return res.json();
-    }
-
-    function fetchPlaceDetails() {
-      return new Promise((resolve) => {
+    function fetchPlaceInfo() {
+      return new Promise((resolve, reject) => {
         const attempt = () => {
           if (!window.google?.maps?.places) { setTimeout(attempt, 100); return; }
           const svc = new window.google.maps.places.PlacesService(document.createElement('div'));
           svc.getDetails(
-            { placeId: place.place_id, fields: ['rating', 'user_ratings_total', 'url'] },
-            (result, status) => resolve(status === window.google.maps.places.PlacesServiceStatus.OK ? result : null)
+            { placeId, fields: ['name', 'formatted_address', 'rating', 'user_ratings_total', 'url'] },
+            (result, status) => {
+              if (status === window.google.maps.places.PlacesServiceStatus.OK) resolve(result);
+              else reject(new Error('Place not found'));
+            }
           );
         };
         attempt();
       });
     }
 
-    Promise.allSettled([fetchAnalysis(), fetchPlaceDetails()]).then(([ai, pd]) => {
-      if (ai.status === 'fulfilled') setAnalysis(ai.value);
-      else setError(ai.reason?.message || 'Analysis failed');
-      if (pd.status === 'fulfilled') setPlaceDetails(pd.value);
+    async function run() {
+      let info;
+      try {
+        info = await fetchPlaceInfo();
+      } catch (e) {
+        setError('Place not found');
+        setLoading(false);
+        return;
+      }
+
+      const placeObj = { place_id: placeId, name: info.name, address: info.formatted_address };
+      setPlace(placeObj);
+      setPlaceDetails(info);
+
+      try {
+        const res = await fetch('/.netlify/functions/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(placeObj),
+        });
+        if (!res.ok) throw new Error((await res.text()) || 'Analysis failed');
+        setAnalysis(await res.json());
+      } catch (e) {
+        setError(e.message || 'Analysis failed');
+      }
       setLoading(false);
-    });
-  }, [place, navigate]);
+    }
+
+    run();
+  }, [placeId, navigate]);
 
   function handleAnalyze() {
-    if (newPlace) navigate('/dashboard', { state: { place: newPlace }, replace: true });
+    if (newPlace) navigate(`/dashboard/${newPlace.place_id}`, { replace: true });
   }
 
   const searchBar = (
@@ -83,7 +99,7 @@ export default function DashboardScreen() {
         <Header showPoweredBy>{searchBar}</Header>
         <div className="loading-state">
           <div className="loading-spinner" />
-          <span className="loading-label">Analyzing {place?.name}…</span>
+          <span className="loading-label">Analyzing {place?.name ?? '…'}</span>
         </div>
       </div>
     );

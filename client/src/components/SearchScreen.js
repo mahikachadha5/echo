@@ -12,7 +12,7 @@ export default function SearchScreen() {
   }, []);
 
   function handleAnalyze() {
-    if (selectedPlace) navigate('/dashboard', { state: { place: selectedPlace } });
+    if (selectedPlace) navigate(`/dashboard/${selectedPlace.place_id}`);
   }
 
   return (
