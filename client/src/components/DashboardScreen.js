@@ -10,16 +10,6 @@ import WhenToGoCard from './dashboard/WhenToGoCard';
 import KnowBeforeYouGoCard from './dashboard/KnowBeforeYouGoCard';
 import './DashboardScreen.css';
 
-function RatingStars({ rating }) {
-  const full = Math.floor(rating ?? 0);
-  return (
-    <div className="dash-stars">
-      {[1, 2, 3, 4, 5].map(i => (
-        <span key={i} className={`dash-star ${i <= full ? 'dash-star-filled' : 'dash-star-empty'}`}>★</span>
-      ))}
-    </div>
-  );
-}
 
 export default function DashboardScreen() {
   const { state } = useLocation();
@@ -108,31 +98,20 @@ export default function DashboardScreen() {
           {/* Place hero */}
           <div className="dash-hero">
             <div>
-              <div className="dash-name-row">
-                <h1 className="dash-place-name">{place.name}</h1>
-                {analysis.sentimentScore != null && (
-                  <span className="dash-score-badge">
-                    {analysis.sentimentScore}<span className="dash-score-denom">/100</span>
-                  </span>
-                )}
-              </div>
+              <h1 className="dash-place-name">{place.name}</h1>
               <p className="dash-place-addr">{place.address}</p>
               {analysis.trendDescription && <p className="dash-trend-desc">{analysis.trendDescription}</p>}
             </div>
             <div className="dash-hero-right">
-              {placeDetails?.rating && (
-                <div className="dash-rating-row">
-                  <RatingStars rating={placeDetails.rating} />
-                  <span className="dash-rating-num">{placeDetails.rating}</span>
-                  <span className="dash-review-count">({placeDetails.user_ratings_total?.toLocaleString()} reviews)</span>
+              {analysis.sentimentScore != null && (
+                <div className="dash-echo-score">
+                  <span className="dash-echo-score-num">
+                    {analysis.sentimentScore}<span className="dash-echo-score-denom">/100</span>
+                  </span>
+                  <span className="dash-echo-score-label">ECHO'S SCORE</span>
                 </div>
               )}
               <div className="dash-hero-btns">
-                {/* {analysis.reservationUrl && (
-                  <button className="reserve-btn" onClick={() => window.open(analysis.reservationUrl, '_blank')}>
-                    Reserve a table
-                  </button>
-                )} */}
                 {placeDetails?.url && (
                   <button className="view-reviews-btn" onClick={() => window.open(placeDetails.url, '_blank')}>
                     View reviews ↗
@@ -145,11 +124,11 @@ export default function DashboardScreen() {
           <div className="dash-layout">
             <div className="dash-row-1">
               <ThemesCard themes={analysis.keyThemes} />
-              <BestForCard occasions={analysis.bestFor} />
-              <WhenToGoCard whenToGo={analysis.whenToGo} />
+              <KnowBeforeYouGoCard items={analysis.headsUp} tips={analysis.insiderTips} />
             </div>
             <div className="dash-row-2">
-              <KnowBeforeYouGoCard items={analysis.headsUp} tips={analysis.insiderTips} />
+              <BestForCard occasions={analysis.bestFor} />
+              <WhenToGoCard whenToGo={analysis.whenToGo} />
               <AskCard place={place} questions={analysis.suggestedQuestions?.slice(0, 2)} />
             </div>
           </div>

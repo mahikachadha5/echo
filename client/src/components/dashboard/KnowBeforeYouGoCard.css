@@ -12,6 +12,7 @@
 }
 .kbyg-filter:hover { border-color: var(--accent); color: var(--accent); }
 .kbyg-filter--active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.kbyg-filter--active:hover { color: #fff; }
 .kbyg-filter--active .kbyg-filter-icon--headsup { border-color: #fff; color: #fff; }
 .kbyg-filter--active .kbyg-filter-icon--tips { color: #fff; }
 

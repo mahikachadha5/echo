@@ -19,13 +19,14 @@
 .dash-rating-num { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #1A1A1A; }
 .dash-review-count { font-size: 14px; color: #999; }
 .dash-hero-btns { display: flex; gap: 8px; align-items: center; }
-.view-reviews-btn { font-size: 13px; font-weight: 500; color: #1A1A1A; background: #fff; border: 1px solid #E8E7E2; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: border-color 0.15s; font-family: 'DM Sans', sans-serif; }
+.dash-echo-score { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.dash-echo-score-num { font-family: 'DM Serif Display', serif; font-size: 37px; font-weight: 400; color: var(--accent); white-space: nowrap; line-height: 1; }
+.dash-echo-score-denom { font-size: 16px; color: #BBB; }
+.dash-echo-score-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; font-family: 'DM Sans', sans-serif; }
+.view-reviews-btn { font-size: 13px; font-weight: 500; color: #1A1A1A; background: #fff; border: 1px solid #E8E7E2; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: border-color 0.15s; font-family: 'DM Sans', sans-serif; min-width: 129px; }
 .view-reviews-btn:hover { border-color: #1A1A1A; }
 .reserve-btn { font-size: 13px; font-weight: 500; color: #fff; background: #1A1A1A; border: 1px solid #1A1A1A; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: opacity 0.15s; font-family: 'DM Sans', sans-serif; }
 .reserve-btn:hover { opacity: 0.8; }
-
-/* ── Claude's take (full width) ── */
-.dash-take-wrap { margin-bottom: 24px; }
 
 /* ── Grid layout ── */
 .dash-layout { display: flex; flex-direction: column; gap: 20px; }
@@ -34,14 +35,14 @@
 .dash-row-1 > *:not(:first-child) { flex: 1; min-width: 0; }
 .dash-row-2 { display: flex; gap: 20px; align-items: stretch; }
 .dash-row-2 > * { flex: 1; min-width: 0; }
+.dash-row-2 > *:last-child { flex: 2.5; }
 
 /* ── dash-card-label is used inside each card component ── */
 .dash-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
 
 @media (max-width: 768px) {
   .dash-page { padding: 24px 16px 48px; }
-  .dash-hero { flex-direction: column; gap: 16px; }
-  .dash-place-name { font-size: 32px; }
-  .dash-hero-right { align-items: flex-start; }
+  .dash-place-name { font-size: 28px; }
+  .dash-echo-score-num { font-size: 28px; }
   .dash-row-1, .dash-row-2 { flex-direction: column; }
 }
