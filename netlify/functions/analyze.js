@@ -42,8 +42,10 @@ making it perfect for a leisurely meal." or "Friday and Saturday evenings get pa
 waits can stretch past an hour."). The first 3 words should work as a standalone skim label.
 - "headsUp": Array of 2–4 strings. Specific warnings or common complaints visitors should know.
 - "insiderTips": Array of 2–3 strings. Specific tips that regular customers know.
-- "suggestedQuestions": Array of exactly 4 strings. Contextually relevant questions a first-time \
-visitor might ask about this specific place.
+- "suggestedQuestions": Array of exactly 4 strings. Contextually relevant questions framed in \
+third person (e.g. "What do regulars typically order here?", "How long do waits tend to get on \
+weekends?", "Is the outdoor seating worth it?"). No "I" or "you" — treat it as asking about \
+the place itself or what people generally experience.
 - "reservationUrl": String URL to book a reservation if this is a restaurant or reservable venue — \
 prefer a direct Resy listing URL, then OpenTable, then the venue's own reservations page. Return null \
 if the place does not take reservations or is not a dining/hospitality venue.

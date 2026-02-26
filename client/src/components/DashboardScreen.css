@@ -6,7 +6,7 @@
 .dash-hero { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
 .dash-place-name { font-family: 'DM Serif Display', serif; font-size: 46px; font-weight: 400; line-height: 1.1; letter-spacing: -0.5px; color: #1A1A1A; }
 .dash-name-row { display: flex; align-items: baseline; gap: 14px; }
-.dash-score-badge { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; color: #1A1A1A; white-space: nowrap; }
+.dash-score-badge { font-family: 'DM Serif Display', serif; font-size: 37px; font-weight: 400; color: var(--accent); white-space: nowrap; }
 .dash-score-denom { font-size: 16px; color: #BBB; }
 .dash-place-addr { font-size: 15px; color: #888; margin-top: 6px; font-family: 'DM Sans', sans-serif; }
 .dash-trend-desc { font-size: 14px; font-weight: 400; color: #666; margin-top: 10px; font-family: 'DM Sans', sans-serif; line-height: 1.5; }

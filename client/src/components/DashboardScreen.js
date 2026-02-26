@@ -150,7 +150,7 @@ export default function DashboardScreen() {
             </div>
             <div className="dash-row-2">
               <KnowBeforeYouGoCard items={analysis.headsUp} tips={analysis.insiderTips} />
-              <AskCard place={place} />
+              <AskCard place={place} questions={analysis.suggestedQuestions?.slice(0, 2)} />
             </div>
           </div>
         </div>
