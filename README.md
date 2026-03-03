@@ -8,17 +8,15 @@ AI-powered review intelligence for any place. Search any restaurant, hotel, or v
 
 ## What it does
 
-Echo transforms public reviews into structured insights using Claude. Search any place and get:
+Echo transforms public reviews into structured insights.
 
-- **Claude's take** — a single distilled sentence that captures the essence of the place
 - **Sentiment score** with trend analysis (improving, stable, or declining)
-- **Topic breakdown** — what people talk about most, ranked by mention frequency and sentiment
-- **Vibe & tone** — emotional descriptors pulled from review language
-- **Best for** — occasion tags with reviewer mention counts
+- **Topic breakdown** — what people talk about most, ranked by mention sentiment
+- **Best for** — occasion tags
 - **When to go** — best and worst times based on review patterns
 - **Heads up** — recurring complaints worth knowing before you visit
-- **Insider tips** — hidden gems most people miss
-- **Ask about this place** — follow-up questions answered by Claude in context
+- **Pro tips** — hidden gems most people miss
+- **Ask about this place** — follow-up questions answered by Claude
 
 ---
 
