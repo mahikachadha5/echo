@@ -17,13 +17,14 @@ export default function SearchScreen() {
 
   return (
     <div className="app">
+      <img src={`${process.env.PUBLIC_URL}/pos.webp`} className="search-screen-bg" alt="" />
       <Header />
       <div className="hero">
         <h1 className="hero-title">
           Understand any place,
           <em>instantly.</em>
         </h1>
-        <p className="hero-sub">AI-powered analysis of any restaurant, café, or venue.</p>
+        <p className="hero-sub">Synthesizing hundreds of reviews so you don't have to.</p>
         <div className="search-wrap">
           <AutocompleteSearch onPlaceSelected={handlePlaceSelected} />
           <button className="search-btn" onClick={handleAnalyze} disabled={!selectedPlace}>

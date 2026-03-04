@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
-const PROMPTS = ['Carbone in New York City', 'Ritz-Carlton Half Moon Bay', 'Ilona Boston'];
+const PROMPTS = ["'carbone nyc'", "'ritz carlton sf'", "'la cabra bakery'"];
 
 const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
   const inputRef = useRef(null);
@@ -15,21 +15,21 @@ const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
     function tick() {
       const current = PROMPTS[promptIndex];
       if (!isDeleting) {
-        setPlaceholder(current.slice(0, charIndex + 1));
+        setPlaceholder("try " + current.slice(0, charIndex + 1));
         charIndex++;
         if (charIndex === current.length) {
           isDeleting = true;
           timeout = setTimeout(tick, 1800);
         } else {
-          timeout = setTimeout(tick, 60);
+          timeout = setTimeout(tick, 70);
         }
       } else {
-        setPlaceholder(current.slice(0, charIndex - 1));
+        setPlaceholder("try " + current.slice(0, charIndex - 1));
         charIndex--;
         if (charIndex === 0) {
           isDeleting = false;
           promptIndex = (promptIndex + 1) % PROMPTS.length;
-          timeout = setTimeout(tick, 400);
+          timeout = setTimeout(tick, 500);
         } else {
           timeout = setTimeout(tick, 35);
         }
