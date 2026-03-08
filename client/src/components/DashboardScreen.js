@@ -11,6 +11,13 @@ import KnowBeforeYouGoCard from './dashboard/KnowBeforeYouGoCard';
 import './DashboardScreen.css';
 
 
+const LOADING_STEPS = (name) => [
+  `Gathering reviews for ${name}...`,
+  `Cross-referencing with other sources...`,
+  `Compiling and arranging insights...`,
+  `Almost there...`,
+];
+
 export default function DashboardScreen() {
   const { placeId } = useParams();
   const navigate = useNavigate();
@@ -20,7 +27,39 @@ export default function DashboardScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [newPlace, setNewPlace] = useState(null);
+  const [loadingLabel, setLoadingLabel] = useState('');
+  const [showCursor, setShowCursor] = useState(false);
   const searchRef = useRef(null);
+  const placeRef = useRef(null);
+
+  useEffect(() => { placeRef.current = place; }, [place]);
+
+  useEffect(() => {
+    if (!loading) { setLoadingLabel(''); setShowCursor(false); return; }
+    let stepIndex = 0;
+    let charIndex = 0;
+    let timeout;
+
+    function tick() {
+      const name = placeRef.current?.name ?? '…';
+      const steps = LOADING_STEPS(name);
+      const current = steps[stepIndex];
+      charIndex++;
+      setLoadingLabel(current.slice(0, charIndex));
+      if (charIndex < current.length) {
+        setShowCursor(true);
+        timeout = setTimeout(tick, 60);
+      } else {
+        setShowCursor(false);
+        stepIndex = (stepIndex + 1) % steps.length;
+        charIndex = 0;
+        timeout = setTimeout(tick, 2200);
+      }
+    }
+
+    timeout = setTimeout(tick, 200);
+    return () => clearTimeout(timeout);
+  }, [loading]);
 
   useEffect(() => {
     if (place?.name) searchRef.current?.setValue(place.name);
@@ -99,7 +138,7 @@ export default function DashboardScreen() {
         <Header showPoweredBy>{searchBar}</Header>
         <div className="loading-state">
           <div className="loading-spinner" />
-          <span className="loading-label">Analyzing {place?.name ?? '…'}</span>
+          <span className="loading-label">{loadingLabel || `Analyzing ${place?.name ?? '…'}`}{showCursor && <span className="loading-cursor" />}</span>
         </div>
       </div>
     );

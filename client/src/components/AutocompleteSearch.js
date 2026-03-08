@@ -15,22 +15,26 @@ const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
     function tick() {
       const current = PROMPTS[promptIndex];
       if (!isDeleting) {
-        setPlaceholder("try " + current.slice(0, charIndex + 1));
+        const text = "try " + current.slice(0, charIndex + 1);
         charIndex++;
         if (charIndex === current.length) {
+          setPlaceholder(text);
           isDeleting = true;
           timeout = setTimeout(tick, 1800);
         } else {
+          setPlaceholder(text + "▎");
           timeout = setTimeout(tick, 70);
         }
       } else {
-        setPlaceholder("try " + current.slice(0, charIndex - 1));
         charIndex--;
+        const deletedText = "try " + current.slice(0, charIndex);
         if (charIndex === 0) {
+          setPlaceholder(deletedText);
           isDeleting = false;
           promptIndex = (promptIndex + 1) % PROMPTS.length;
           timeout = setTimeout(tick, 500);
         } else {
+          setPlaceholder(deletedText + "▎");
           timeout = setTimeout(tick, 35);
         }
       }
