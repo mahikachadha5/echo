@@ -1,35 +1,34 @@
-.app-dashboard { background: #F5F4EF; font-family: var(--sans); overflow-x: hidden; }
+.app-dashboard { background: var(--bg); font-family: var(--sans); overflow-x: hidden; }
 
 .dash-page { padding: 36px 48px 64px; }
 
 /* ── Place hero ── */
 .dash-hero { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
-.dash-place-name { font-family: var(--serif); font-size: 32px; font-weight: 400; line-height: 1.3; letter-spacing: -0.5px; color: #1A1A1A; }
+.dash-place-name { font-family: var(--serif); font-size: 32px; font-weight: 400; line-height: 1.3; letter-spacing: -0.5px; color: var(--text); }
 .dash-name-row { display: flex; align-items: baseline; gap: 14px; }
 .dash-score-badge { font-family: var(--serif); font-size: 46px; font-weight: 400; color: var(--accent); white-space: nowrap; }
-.dash-score-denom { font-size: 15px; color: #BBB; }
-.dash-place-addr { font-size: 14px; color: #888; margin-top: 6px; font-family: var(--sans); }
-.dash-trend-desc { font-size: 15px; font-weight: 400; color: #666; margin-top: 10px; font-family: var(--sans); line-height: 1.5; max-width: 1000px; }
+.dash-score-denom { font-size: 15px; color: var(--text-3); }
+.dash-place-addr { font-size: 14px; color: var(--text-3); margin-top: 6px; font-family: var(--sans); }
+.dash-trend-desc { font-size: 15px; font-weight: 400; color: var(--text-2); margin-top: 10px; font-family: var(--sans); line-height: 1.5; max-width: 1000px; }
 .dash-hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; padding-top: 4px; }
 .dash-rating-row { display: flex; align-items: center; gap: 8px; }
 .dash-stars { display: flex; gap: 2px; }
 .dash-star { font-size: 17px; }
 .dash-star-filled { color: var(--accent); }
-.dash-star-empty  { color: #E0DDD8; }
-.dash-rating-num { font-family: var(--serif); font-size: 22px; font-weight: 400; color: #1A1A1A; }
-.dash-review-count { font-size: 14px; color: #999; }
+.dash-rating-num { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); }
+.dash-review-count { font-size: 14px; color: var(--text-2); }
 .dash-hero-btns { display: flex; gap: 8px; align-items: center; }
 .dash-echo-score { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
 .dash-echo-score-num { font-family: var(--serif); font-size: 37px; font-weight: 400; color: var(--accent); white-space: nowrap; line-height: 1; }
-.dash-echo-score-denom { font-size: 16px; color: #BBB; }
+.dash-echo-score-denom { font-size: 16px; color: var(--text-3); }
 .dash-echo-score-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; font-family: var(--sans); }
-.view-reviews-btn { font-size: 13px; font-weight: 500; color: #1A1A1A; background: #fff; border: 1px solid #E8E7E2; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: border-color 0.15s; font-family: var(--sans); min-width: 129px; }
-.view-reviews-btn:hover { border-color: #1A1A1A; }
-.reserve-btn { font-size: 13px; font-weight: 500; color: #fff; background: #1A1A1A; border: 1px solid #1A1A1A; border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: opacity 0.15s; font-family: var(--sans); }
+.view-reviews-btn { font-size: 14px; font-weight: 500; color: var(--text); background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; cursor: pointer; transition: border-color 0.15s; font-family: var(--sans); min-width: 129px; }
+.view-reviews-btn:hover { border-color: var(--text); }
+.reserve-btn { font-size: 14px; font-weight: 500; color: var(--white); background: var(--text); border: 1px solid var(--text); border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: opacity 0.15s; font-family: var(--sans); }
 .reserve-btn:hover { opacity: 0.8; }
 
 /* ── Divider ── */
-.dash-divider { border: none; border-top: 1px solid #E8E7E2; margin: 0 0 24px; }
+.dash-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
 
 /* ── Grid layout ── */
 .dash-layout { display: flex; flex-direction: column; gap: 20px; }
