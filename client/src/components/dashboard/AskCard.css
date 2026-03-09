@@ -9,6 +9,8 @@
 .ask-btn { background: #1A1A1A; color: #fff; border: none; border-radius: 10px; padding: 11px 20px; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: opacity 0.15s; white-space: nowrap; }
 .ask-btn:hover { opacity: 0.82; }
 .ask-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.ask-answer-wrap { margin-top: 14px; background: #F5F4EF; border-radius: 10px; padding: 14px 16px; }
+.ask-answer-wrap { margin-top: 14px; padding: 4px 0; }
 .ask-answer-text { font-size: 14px; color: #333; line-height: 1.6; font-family: 'DM Sans', sans-serif; }
 .ask-loading-text { font-size: 14px; color: #BBB; margin-top: 12px; font-family: 'DM Sans', sans-serif; }
+.ask-loading-spinner { display: flex; justify-content: center; margin-top: 14px; }
+.ask-loading-spinner .loading-spinner { width: 22px; height: 22px; }

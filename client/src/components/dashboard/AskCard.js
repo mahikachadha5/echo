@@ -1,11 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './AskCard.css';
 
 export default function AskCard({ place, questions }) {
   const [input, setInput] = useState('');
   const [answer, setAnswer] = useState('');
+  const [displayedAnswer, setDisplayedAnswer] = useState('');
+  const [showCursor, setShowCursor] = useState(false);
   const [loading, setLoading] = useState(false);
   const [dismissed, setDismissed] = useState(new Set());
+  const answerRef = useRef('');
+
+  useEffect(() => {
+    if (!answer) { setDisplayedAnswer(''); setShowCursor(false); return; }
+    answerRef.current = answer;
+    let charIndex = 0;
+    let timeout;
+
+    function tick() {
+      charIndex++;
+      setDisplayedAnswer(answerRef.current.slice(0, charIndex));
+      if (charIndex < answerRef.current.length) {
+        setShowCursor(true);
+        timeout = setTimeout(tick, 35);
+      } else {
+        setShowCursor(false);
+      }
+    }
+
+    setDisplayedAnswer('');
+    setShowCursor(true);
+    timeout = setTimeout(tick, 50);
+    return () => clearTimeout(timeout);
+  }, [answer]);
 
   const visibleQuestions = (questions || []).filter((_, i) => !dismissed.has(i));
 
@@ -14,6 +40,7 @@ export default function AskCard({ place, questions }) {
     if (!question.trim()) return;
     setLoading(true);
     setAnswer('');
+    setDisplayedAnswer('');
     try {
       const res = await fetch('/.netlify/functions/ask', {
         method: 'POST',
@@ -58,12 +85,15 @@ export default function AskCard({ place, questions }) {
           Ask
         </button>
       </div>
-      {loading && <p className="ask-loading-text">Thinking…</p>}
-      {answer && (
+      {loading && !displayedAnswer && <div className="ask-loading-spinner"><div className="loading-spinner" /></div>}
+      {displayedAnswer && (
         <div className="ask-answer-wrap">
-          <p className="ask-answer-text">{answer.split(/\*\*(.+?)\*\*/g).map((part, i) =>
-            i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-          )}</p>
+          <p className="ask-answer-text">
+            {displayedAnswer.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+            )}
+            {showCursor && <span className="loading-cursor" />}
+          </p>
         </div>
       )}
     </div>
