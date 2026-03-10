@@ -48,7 +48,6 @@ const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
     setValue: (value) => {
       if (inputRef.current) {
         inputRef.current.value = value;
-        inputRef.current.focus();
       }
     },
   }));
@@ -69,6 +68,7 @@ const AutocompleteSearch = forwardRef(({ onPlaceSelected }, ref) => {
         const place = autocomplete.getPlace();
         if (!place.place_id) return;
 
+        inputRef.current?.blur();
         onPlaceSelected({
           place_id: place.place_id,
           name: place.name,
