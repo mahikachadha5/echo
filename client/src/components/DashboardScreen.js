@@ -163,7 +163,15 @@ export default function DashboardScreen() {
                   <span className="dash-echo-score-num">
                     {analysis.sentimentScore}<span className="dash-echo-score-denom">/100</span>
                   </span>
-                  <span className="dash-echo-score-label">Sentiment Score</span>
+                  <div className="dash-echo-score-label-row">
+                    <span className="dash-echo-score-label">Sentiment Score</span>
+                    <div className="score-tooltip-wrap">
+                      <span className="score-info-icon">?</span>
+                      <div className="score-tooltip">
+                        Aggregated from real visitor reviews. Reflects overall sentiment — positive language, satisfaction, and recurring praise — on a scale of 0 to 100.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
               <div className="dash-hero-btns">

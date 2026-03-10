@@ -22,6 +22,11 @@
 .dash-echo-score-num { font-family: var(--serif); font-size: 37px; font-weight: 400; color: var(--accent); white-space: nowrap; line-height: 1; }
 .dash-echo-score-denom { font-size: 16px; color: var(--text-3); }
 .dash-echo-score-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BBB; font-family: var(--sans); }
+.dash-echo-score-label-row { display: flex; align-items: center; gap: 5px; }
+.score-tooltip-wrap { position: relative; display: flex; align-items: center; }
+.score-info-icon { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #CCC; color: #BBB; font-size: 9px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: default; font-family: var(--sans); line-height: 1; user-select: none; }
+.score-tooltip { display: none; position: absolute; right: 0; top: calc(100% + 8px); width: 220px; background: var(--white); color: var(--text-2); border: 1px solid var(--border); box-shadow: var(--shadow); font-size: 12px; font-weight: 400; line-height: 1.5; padding: 10px 12px; border-radius: 8px; font-family: var(--sans); letter-spacing: 0; text-transform: none; z-index: 200; pointer-events: none; }
+.score-tooltip-wrap:hover .score-tooltip { display: block; }
 .view-reviews-btn { font-size: 14px; font-weight: 500; color: var(--text); background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; cursor: pointer; transition: border-color 0.15s; font-family: var(--sans); min-width: 129px; }
 .view-reviews-btn:hover { border-color: var(--text); }
 .reserve-btn { font-size: 14px; font-weight: 500; color: var(--white); background: var(--text); border: 1px solid var(--text); border-radius: 100px; padding: 7px 16px; cursor: pointer; transition: opacity 0.15s; font-family: var(--sans); }
