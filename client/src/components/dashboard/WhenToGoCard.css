@@ -1,6 +1,8 @@
 .whentogo-card { background: var(--white); border: 1px solid #E8E7E2; border-radius: 12px; padding: 22px; }
-.whentogo-row { display: flex; flex-direction: column; gap: 4px; padding-bottom: 14px; border-bottom: 1px solid #F0EFE9; margin-bottom: 14px; }
-.whentogo-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.whentogo-rows { display: flex; flex-direction: column; }
+.whentogo-row { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid #F0EFE9; }
+.whentogo-row:first-child { padding-top: 0; }
+.whentogo-row:last-child { border-bottom: none; padding-bottom: 0; }
 .whentogo-sublabel { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #BBB; font-family: 'DM Sans', sans-serif; }
 .whentogo-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .dot-green { background: var(--accent); }

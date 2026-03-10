@@ -12,20 +12,22 @@ export default function ThemesCard({ themes }) {
   return (
     <div className="themes-card">
       <div className="dash-card-label">What People Talk About</div>
-      {sorted.map(({ theme, score }) => {
-        const t = tier(score);
-        return (
-          <div key={theme} className="theme-row">
-            <div className="theme-name-wrap">
-              <span className={`theme-name theme-name-${t}`}>{theme}</span>
+      <div className="themes-rows">
+        {sorted.map(({ theme, score }) => {
+          const t = tier(score);
+          return (
+            <div key={theme} className="theme-row">
+              <div className="theme-name-wrap">
+                <span className={`theme-name theme-name-${t}`}>{theme}</span>
+              </div>
+              <div className="theme-bar-track">
+                <div className={`theme-bar-fill bar-${t}`} style={{ width: `${score}%` }} />
+              </div>
+              <span className={`theme-score score-${t}`}>{score}</span>
             </div>
-            <div className="theme-bar-track">
-              <div className={`theme-bar-fill bar-${t}`} style={{ width: `${score}%` }} />
-            </div>
-            <span className={`theme-score score-${t}`}>{score}</span>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

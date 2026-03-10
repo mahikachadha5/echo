@@ -13,6 +13,7 @@ export default function WhenToGoCard({ whenToGo }) {
   return (
     <div className="whentogo-card">
       <div className="dash-card-label">When to Go</div>
+      <div className="whentogo-rows">
       <div className="whentogo-row">
         <div className="whentogo-sublabel">
           <span className="whentogo-dot dot-green" />
@@ -26,6 +27,7 @@ export default function WhenToGoCard({ whenToGo }) {
           Avoid
         </div>
         <div className="whentogo-text"><BoldStart text={whenToGo.avoid} /></div>
+      </div>
       </div>
     </div>
   );
